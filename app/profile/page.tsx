@@ -19,7 +19,6 @@ export default function ProfilePage() {
 
   return (
     <div className="h-screen w-full bg-zinc-900 flex items-center justify-center text-white">
-      
       <div className="bg-zinc-800 p-8 rounded-2xl w-96 text-center shadow-xl">
 
         {/* Profile Image */}
@@ -37,16 +36,27 @@ export default function ProfilePage() {
         {/* Email */}
         <p className="text-zinc-400 mt-1">{user?.email}</p>
 
-        {/* Logout Button */}
-        <button
-          onClick={() => signOut({ callbackUrl: "/login" })}
-          className="mt-6 w-full py-2 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold"
-        >
-          Logout
-        </button>
+        {/* Buttons */}
+        <div className="mt-6 space-y-3">
 
+          {/* Edit Button */}
+          <button
+            onClick={() => router.push("/Edit")}
+            className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-xl font-semibold"
+          >
+            Edit Profile
+          </button>
+
+          {/* Logout Button */}
+          <button
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            className="w-full py-2 bg-red-600 hover:bg-red-700 rounded-xl font-semibold"
+          >
+            Logout
+          </button>
+
+        </div>
       </div>
-
     </div>
   );
 }
